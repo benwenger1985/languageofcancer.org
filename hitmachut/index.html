@@ -83,7 +83,8 @@ section{padding-block:56px 8px;display:grid;gap:24px}
 .prose{max-width:64ch;display:grid;gap:16px}
 
 /* learn */
-.learn{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:22px}
+.learn{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.learn article{min-width:0}
 .learn article{display:grid;gap:8px;align-content:start;padding-top:16px;border-top:4px solid var(--c-sage)}
 .learn article:nth-child(5n+2){border-color:var(--c-red)}
 .learn article:nth-child(5n+3){border-color:var(--c-sand)}
@@ -149,12 +150,13 @@ footer{border-top:1px solid var(--line);margin-top:48px;padding-block:22px;font-
   .facts div:nth-child(3){border-inline-start:0}
   .facts div:nth-child(n+3){border-top:1px solid var(--line)}
   .path{grid-template-columns:1fr 1fr}
+  .learn{grid-template-columns:1fr 1fr}
   .numbers{grid-template-columns:1fr 1fr}
   .top .cta{display:none}
   .bar{display:flex;position:fixed;inset-inline:0;bottom:0;z-index:10;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-top:1px solid var(--line);direction:rtl}
   .bar{justify-content:center}
 }
-@media (max-width:460px){.path{grid-template-columns:1fr}.logo{width:92px;height:92px}}
+@media (max-width:460px){.path,.learn{grid-template-columns:1fr}.logo{width:92px;height:92px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
 </style>
 
@@ -198,10 +200,9 @@ footer{border-top:1px solid var(--line);margin-top:48px;padding-block:22px;font-
     <p>12 שעות לימוד בקבוצה דרך חוויה ותרגול נוכחות עם סרטן, סופיות ומוות.</p>
   </div>
   <div class="learn">
-    <article><h3>מפגש עם סרטן, מוות וחיים</h3><p>תרגול המפגש עם הפחד, העצב והכאב מול מוות. קודם כל אצלנו, כדי שנוכל לשבת איתם בנוכחות מיטיבה לצד האחר.</p></article>
+    <article><h3>מיינדפולנס</h3><p>טיפוח נוכחות קשובה ומיטיבה לנשימה, לגוף ולכל מה שעולה בנו במפגש עם עצמנו ועם האחר.</p></article>
     <article><h3>חמש ההיזכרויות</h3><p>תרגול שמזכיר את מה שמשותף לכולנו: הזקנה, החולי, המוות, הפרידה ומה שנשאר מהמעשים שלנו.</p></article>
-    <article><h3>נוכחות והדהוד</h3><p>להקשיב דרך הגוף ולהחזיר למטופל.ת את מה שהוא מרגיש, כך שלא יהיה לבד עם מה שהוא עובר.</p></article>
-    <article><h3>מיינדפולנס</h3><p>טיפוח נוכחות קשובה ומיטיבה לנשימה, לגוף ולכל מה שעולה במפגש עם קושי, שלנו ושל האחר.</p></article>
+    <article><h3>מפגש עם סרטן, מוות וחיים</h3><p>לימוד על כאב, סבל, חששות ורגשות קשים. נתרגל נוכחות והדהוד.</p></article>
     <article><h3>העבודה במחלקה</h3><p>מידע רפואי ומעשי על המחלקה ההמטולוגית, על השתלות מח עצם ועל עבודה לצד הצוות הרפואי.</p></article>
   </div>
 </section>
