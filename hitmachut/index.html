@@ -101,6 +101,15 @@ section{padding-block:56px 8px;display:grid;gap:24px}
 .path li.gate{background:transparent;border:1.5px dashed var(--line)}
 .path p{font-size:.98rem}
 
+/* after */
+.after{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.after li{background:var(--surface);border-radius:18px;padding:20px 22px;display:grid;gap:6px;align-content:start;min-width:0;border-inline-start:5px solid var(--c-sage)}
+.after li:nth-child(2){border-color:var(--c-red)}
+.after li:nth-child(3){border-color:var(--c-sand)}
+.after li:nth-child(4){border-color:var(--c-navy)}
+.after h3{font-size:var(--step-0);font-weight:800}
+.after p{color:var(--muted);font-size:.98rem}
+
 /* about */
 .about{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
 .about > *{min-width:0}
@@ -156,7 +165,7 @@ footer{border-top:1px solid var(--line);margin-top:48px;padding-block:22px;font-
   .bar{display:flex;position:fixed;inset-inline:0;bottom:0;z-index:10;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-top:1px solid var(--line);direction:rtl}
   .bar{justify-content:center}
 }
-@media (max-width:460px){.path,.learn{grid-template-columns:1fr}.logo{width:92px;height:92px}}
+@media (max-width:460px){.path,.learn,.after{grid-template-columns:1fr}.logo{width:92px;height:92px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
 </style>
 
@@ -218,6 +227,19 @@ footer{border-top:1px solid var(--line);margin-top:48px;padding-block:22px;font-
     <li class="gate"><span class="meta">כשעתיים · זום</span><h3>המחלקה מבפנים</h3><p class="when">ייקבע בהמשך</p><p>מפגש עם איזבל על העבודה במחלקה ההמטולוגית.</p></li>
     <li class="gate"><span class="meta">כשעה וחצי · איכילוב</span><h3>יום אוריינטציה</h3><p class="when">ייקבע בהמשך</p><p>למי שירצה להתחיל את תהליך הקליטה להתנדבות במחלקה (כלול במחיר ההשתלמות).</p></li>
   </ol>
+</section>
+
+<section aria-labelledby="h-after">
+  <div class="section-head">
+    <h2 id="h-after">אפשרויות שנפתחות לבוגרים.ות ההתמחות</h2>
+    <p>ההתמחות היא גם שער כניסה לעבודה במחלקה ההמטולוגית באיכילוב.</p>
+  </div>
+  <ul class="after">
+    <li><h3>הצטרפות לצוות המטפלים.ות של העמותה</h3><p>כולל השתתפות במפגשי סנגהה של הצוות, אחת לשלושה שבועות.</p></li>
+    <li><h3>קליטה כמתנדב.ת מן המניין באיכילוב</h3><p>אחרי השלמת תהליך הקליטה להתנדבות בבית החולים.</p></li>
+    <li><h3>תשלום הוגן ומתגמל</h3><p>על הטיפולים שמתבצעים בין כותלי בית החולים.</p></li>
+    <li><h3>גישה להקלטות של מפגשי ההתמחות</h3><p>כדי לחזור לחומרים ולתרגולים גם אחרי שהמפגשים הסתיימו.</p></li>
+  </ul>
   <div class="cta-row"><a class="cta" href="#register">אני רוצה להירשם <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></a></div>
 </section>
 
@@ -284,6 +306,8 @@ footer{border-top:1px solid var(--line);margin-top:48px;padding-block:22px;font-
   <h2 id="h-faq">שאלות נפוצות</h2>
   <div class="faq">
     <details><summary>חייבים.ות להתנדב אחרי ההתמחות?</summary><p>לא. שני המפגשים בקבוצה פתוחים לכולם.ן. המפגש בזום ויום האוריינטציה באיכילוב מיועדים למי שבוחר.ת להתנדב במחלקה.</p></details>
+    <details><summary>מה נפתח בפניי אחרי ההתמחות?</summary><p>בוגרים.ות ההתמחות יכולים.ות להצטרף לצוות המטפלים.ות של העמותה, כולל מפגשי סנגהה אחת לשלושה שבועות, ולהיקלט כמתנדבים.ות מן המניין בבית החולים איכילוב. כל הבוגרים.ות מקבלים.ות גם גישה להקלטות של מפגשי ההתמחות.</p></details>
+    <details><summary>העבודה במחלקה היא בהתנדבות או בתשלום?</summary><p>מטפלים.ות שנקלטים.ות לצוות מקבלים.ות תשלום הוגן ומתגמל על הטיפולים שמתבצעים בין כותלי בית החולים.</p></details>
     <details><summary>כמה זה עולה ואיך משלמים?</summary><p>עלות ההתמחות 800 ₪, עבור שני מפגשי ההתמחות ומפגש הזום. התשלום מתבצע בהעברה בנקאית לחשבון הבנק של העמותה, והפרטים מופיעים מיד בסיום מילוי טופס ההרשמה.</p></details>
     <details><summary>צריך רקע טיפולי?</summary><p>כן. במקרים אחרים אפשר לפנות לאיזבל או לבן, ונשקול יחד את העניין.</p></details>
     <details><summary>איפה בדיוק המפגשים?</summary><p>בצפון הישן של תל אביב. הכתובת המדויקת תישלח למשתתפים.ות לפני המפגש הראשון.</p></details>
