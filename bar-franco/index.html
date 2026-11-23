@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>בר פרנקו – מה שלמדתי באיכילוב</title>
+<meta name="description" content="קומיקס של בר פרנקו על הליווי של חולים במחלקה ההמטולוגית באיכילוב">
+<meta property="og:title" content="בר פרנקו – מה שלמדתי באיכילוב">
+<meta property="og:description" content="קומיקס על ליווי אנשים ברגעים הכי קשים שלהם">
+<meta property="og:image" content="images/01.jpg">
+<link rel="icon" href="images/profile.jpg">
+<style>
+  :root {
+    --bg: #f6f1ec;
+    --card: #ffffff;
+    --ink: #2b2522;
+    --muted: #7a6f69;
+    --line: #e7ded6;
+    --accent: #8a5a3c;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Assistant", "Rubik", "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+  }
+  main {
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 24px 14px 48px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 14px rgba(60, 40, 30, .06);
+  }
+  .author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+  }
+  .author img {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--line);
+  }
+  .author .name { font-weight: 700; font-size: 1.1rem; }
+  .author .sub  { color: var(--muted); font-size: .9rem; }
+
+  /* Carousel */
+  .carousel { position: relative; background: #000; }
+  .track {
+    direction: rtl;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+  }
+  .track::-webkit-scrollbar { display: none; }
+  .slide {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    aspect-ratio: 1122 / 1402;
+  }
+  .slide img {
+    width: 100%; height: 100%;
+    display: block;
+    object-fit: contain;
+    background: #fff;
+  }
+  .nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, .9);
+    color: var(--ink);
+    font-size: 26px;
+    line-height: 44px;
+    cursor: pointer;
+    box-shadow: 0 1px 6px rgba(0,0,0,.25);
+    display: flex; align-items: center; justify-content: center;
+  }
+  /* ltr so the browser doesn't mirror the ‹ › glyphs in Hebrew text */
+  .nav { direction: ltr; unicode-bidi: isolate; }
+  .nav:disabled { opacity: 0; pointer-events: none; }
+  .nav.prev { right: 10px; }
+  .nav.next { left: 10px; }
+  .counter {
+    position: absolute;
+    top: 10px; right: 10px;
+    background: rgba(0, 0, 0, .6);
+    color: #fff;
+    font-size: .85rem;
+    padding: 2px 10px;
+    border-radius: 12px;
+    direction: ltr;
+  }
+  .dots {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 12px 16px 4px;
+    direction: rtl;
+  }
+  .dots button {
+    width: 8px; height: 8px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: #d6ccc4;
+    cursor: pointer;
+  }
+  .dots button[aria-current="true"] { background: var(--accent); }
+
+  .hint {
+    text-align: center;
+    color: var(--muted);
+    font-size: .85rem;
+    margin: 2px 0 0;
+  }
+
+  .caption {
+    padding: 14px 18px 20px;
+    font-size: 1.08rem;
+    white-space: pre-line;
+  }
+  .caption .sign {
+    display: block;
+    margin-top: 10px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .toggle {
+    display: block;
+    margin: 18px auto 0;
+    background: none;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    border-radius: 999px;
+    padding: 8px 20px;
+    font: inherit;
+    cursor: pointer;
+  }
+  .all { display: none; margin-top: 18px; }
+  .all img {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+    margin-bottom: 14px;
+    border: 1px solid var(--line);
+  }
+  body.show-all .all { display: block; }
+
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: .85rem;
+    margin-top: 28px;
+  }
+</style>
+</head>
+<body>
+<main>
+  <article class="card">
+    <header class="author">
+      <img src="images/profile.jpg" alt="בר פרנקו">
+      <div>
+        <div class="name">בר פרנקו</div>
+        <div class="sub">בָּרִיפּוּי · פסיכותרפיסטית טרנספרסונלית</div>
+      </div>
+    </header>
+
+    <div class="carousel" aria-roledescription="carousel" aria-label="קומיקס, 17 עמודים">
+      <div class="track" id="track" tabindex="0"></div>
+      <button class="nav prev" id="prev" aria-label="לעמוד הקודם">&#8250;</button>
+      <button class="nav next" id="next" aria-label="לעמוד הבא">&#8249;</button>
+      <div class="counter" id="counter">1 / 17</div>
+    </div>
+    <div class="dots" id="dots"></div>
+    <p class="hint">החליקו או לחצו על החצים כדי לדפדף</p>
+
+    <div class="caption">הגעתי לאיכילוב כדי ללמוד איך ללוות אנשים ברגעים הכי קשים שלהם
+וגיליתי כמה חיים יש במפגש שבו לא צריך להיות שום דבר מלבד מי שאנחנו
+זה בדיוק המרחב שאני מבקשת ליצור בקליניקה שלי
+מקום שבו אפשר להוריד את ההגנות, לפגוש את עצמך ולהביא גם את החלקים שלא תמיד מקבלים מקום
+אם את כמהה למפגש כזה עם עצמך,
+אני מזמינה אותך להגיע לקליניקה שלי בתל אביב
+לשיחת היכרות, כתבי לי בפרטי 🤎<span class="sign">בָּרִיפּוּי</span></div>
+  </article>
+
+  <button class="toggle" id="toggle">הצגת כל העמודים ברצף</button>
+  <section class="all" id="all" aria-label="כל עמודי הקומיקס"></section>
+
+  <footer>פורסם במקור באינסטגרם של בר פרנקו</footer>
+</main>
+
+<script>
+  const TOTAL = 17;
+  const ALT = {
+    1: "בר נכנסת לחדר של מטופל במחלקה ואומרת: היי, אני בר. המטופל מרים יד: לא, לא, לא, אני לא רוצה!",
+    2: "בר יושבת במסדרון המחלקה ההמטולוגית באיכילוב וחושבת: מה כבר אוכל לתת למישהו שיודע שהוא עומד למות?",
+    17: "למדתי שלא תמיד צריך למצוא את המילים הנכונות, לפעמים צריך רק מקום שבו אפשר להיות בדיוק מי שאנחנו. אני מזמינה אותך להגיע לטיפול איתי. בריפוי."
+  };
+  const src = i => `images/${String(i).padStart(2, "0")}.jpg`;
+  const alt = i => ALT[i] || `עמוד ${i} מתוך ${TOTAL} בקומיקס`;
+
+  const track = document.getElementById("track");
+  const dots = document.getElementById("dots");
+  const all = document.getElementById("all");
+
+  for (let i = 1; i <= TOTAL; i++) {
+    const slide = document.createElement("div");
+    slide.className = "slide";
+    slide.innerHTML = `<img src="${src(i)}" alt="${alt(i)}" ${i > 2 ? 'loading="lazy"' : ""}>`;
+    track.appendChild(slide);
+
+    const dot = document.createElement("button");
+    dot.setAttribute("aria-label", `עמוד ${i}`);
+    dot.onclick = () => go(i - 1);
+    dots.appendChild(dot);
+
+    const img = document.createElement("img");
+    img.src = src(i); img.alt = alt(i); img.loading = "lazy";
+    all.appendChild(img);
+  }
+
+  let current = 0;
+  const prev = document.getElementById("prev");
+  const next = document.getElementById("next");
+  const counter = document.getElementById("counter");
+
+  function go(i) {
+    i = Math.max(0, Math.min(TOTAL - 1, i));
+    track.scrollTo({ left: -i * track.clientWidth });
+  }
+  function update() {
+    current = Math.round(Math.abs(track.scrollLeft) / track.clientWidth);
+    counter.textContent = `${current + 1} / ${TOTAL}`;
+    prev.disabled = current === 0;
+    next.disabled = current === TOTAL - 1;
+    [...dots.children].forEach((d, k) => d.setAttribute("aria-current", k === current));
+  }
+  prev.onclick = () => go(current - 1);
+  next.onclick = () => go(current + 1);
+  track.addEventListener("scroll", () => requestAnimationFrame(update));
+  track.addEventListener("keydown", e => {
+    if (e.key === "ArrowLeft")  { e.preventDefault(); go(current + 1); }
+    if (e.key === "ArrowRight") { e.preventDefault(); go(current - 1); }
+  });
+  window.addEventListener("resize", () => go(current));
+  update();
+
+  document.getElementById("toggle").onclick = function () {
+    const on = document.body.classList.toggle("show-all");
+    this.textContent = on ? "הסתרת העמודים" : "הצגת כל העמודים ברצף";
+    if (on) all.scrollIntoView({ behavior: "smooth" });
+  };
+</script>
+</body>
+</html>
