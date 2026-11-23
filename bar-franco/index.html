@@ -166,9 +166,21 @@
   footer {
     text-align: center;
     color: var(--muted);
-    font-size: .85rem;
+    font-size: .9rem;
     margin-top: 28px;
   }
+  .fb-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 20px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .fb-link:hover { opacity: .9; }
+  footer .fb-link { display: block; width: fit-content; margin: 10px auto 0; }
 </style>
 </head>
 <body>
@@ -203,7 +215,10 @@
   <button class="toggle" id="toggle">הצגת כל העמודים ברצף</button>
   <section class="all" id="all" aria-label="כל עמודי הקומיקס"></section>
 
-  <footer>פורסם במקור בפרופיל הפייסבוק של בר פרנקו</footer>
+  <footer>
+    פורסם במקור בפרופיל הפייסבוק של בר פרנקו
+    <a class="fb-link" href="https://www.facebook.com/share/p/1LNjEXmJjf/" target="_blank" rel="noopener">לפוסט המקורי בפייסבוק</a>
+  </footer>
 </main>
 
 <script>
@@ -270,4 +285,3 @@
 </script>
 </body>
 </html>
-
